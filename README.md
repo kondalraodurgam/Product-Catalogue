@@ -48,24 +48,14 @@ npm run dev  # or yarn dev
 
 ### 4. Open in Browser
 
-Visit `http://localhost:5173/` (or the port specified in Vite).
-
-## How Pagination Works
-
-- The API is queried with the following parameters:
-  - **`limit`** (Number of products per page)
-  - **`skip`** (Offset calculated as `(page - 1) * limit`)
-- Clicking **Next Page** increases the `page` state and updates the API request.
-- Clicking **Previous Page** decreases the `page` state.
-- The **loading spinner** appears when fetching new data.
-- The **pagination buttons** are disabled while data is loading.
+Visit `http://localhost:5173/`
 
 ## API Used
 
 We use the **FakeStore API** for fetching product data:
 
 ```
-GET https://fakestoreapi.com/products?limit=10&skip={skip}
+GET https://fakestoreapi.com/products
 ```
 
 ## File Structure
@@ -84,27 +74,7 @@ GET https://fakestoreapi.com/products?limit=10&skip={skip}
   ├── main.tsx             # React DOM Rendering
 ```
 
-## Enhancements & Future Improvements
-
-- **Search & Filters**: Allow filtering by category, price range, etc.
-- **Sorting**: Enable sorting by price, rating, or name.
-- **Better UI/UX**: Improve responsiveness and accessibility.
-- **Backend Integration**: Replace FakeStore API with a real backend.
-
-## Troubleshooting
-
-### Pagination Not Working?
-
-1. **Check API Response**
-
-   - Open the console (`F12 > Network Tab` in Chrome).
-   - Ensure API requests are returning different data for different pages.
-
-2. **Verify `skip` Calculation**
-
-   - Ensure `skip = (page - 1) * limit` is correctly calculated in `fetchProducts()`.
-
-3. **Check State Updates**
+ **Check State Updates**
 
    - Log `page` changes in `useEffect`:
 
